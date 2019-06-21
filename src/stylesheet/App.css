@@ -34,6 +34,20 @@ body {
   line-height: 1.6; 
 }
 
+.whole-thing {
+  display: flex;
+  height: 800px;
+}
+
+.search-photos{
+  width: 40%;
+  margin-left: 20px;
+}
+
+.photos-results {
+  height: 700px;
+  overflow: scroll;
+}
 .container {
   width: 60%;
   margin: 2rem auto; 
@@ -117,4 +131,8 @@ body {
   /** Alternative Syntax **/
   /* grid-column: 5 / span 4; */
   /* grid-row: 6 / span 3; */
+}
+
+img {
+  margin: 5px;
 }

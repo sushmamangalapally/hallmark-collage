@@ -1,3 +1,12 @@
+## Project:
+ReactJS web app where users can build Photo Collage from UnSplash API
+
+## Things to Do:
+* Build email attachment - include image and send any sender - Use SendGrid API
+*  Add functionality for users to add text or captions
+** Maybe add an option to add an text
+* Clean up the code and refactor
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
