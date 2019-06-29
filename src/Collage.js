@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import domtoimage from 'dom-to-image';
-// sgMail.setApiKey('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') 
 
 
 class Collage extends Component {
