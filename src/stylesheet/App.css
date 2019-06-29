@@ -2,7 +2,9 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale; 
+  background: #e8eaf6;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
@@ -37,6 +39,7 @@ body {
 .whole-thing {
   display: flex;
   height: 800px;
+  padding-top: 20px;
 }
 
 .search-photos{
@@ -44,8 +47,13 @@ body {
   margin-left: 20px;
 }
 
+.background {
+  color: #504e4e;
+  font-weight: 500;
+}
+
 .photos-results {
-  height: 700px;
+  height: 80%;
   overflow: scroll;
 }
 .container {
@@ -135,4 +143,16 @@ body {
 
 img {
   margin: 5px;
+}
+
+a {
+  margin-right: 20px;
+}
+
+.collageHeader > h1 {
+  font-weight: 700;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color:#474950;
 }

@@ -2,9 +2,10 @@
 ReactJS web app where users can build Photo Collage from UnSplash API
 
 ## Things to Do:
-* Build email attachment - include image and send any sender - Use SendGrid API
-*  Add functionality for users to add text or captions
-** Maybe add an option to add an text
+*  -Add functionality for users to add text or captions-
+* -Maybe add an option to add an text-
+* Modify collage picture search - update the search pictures if already exist in the collage
+* Modify weird black bar top
 * Clean up the code and refactor
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -21,9 +21,9 @@ class App extends Component {
   render() {
     console.log(this.state.pictures)
   return (
-    <div className="App indigo lighten-5">
+    <div className="App">
         {/* <div className="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div> */}
-                    
+          
           <Search
             pictures = {this.state.pictures}
             query = {this.state.query}

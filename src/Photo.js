@@ -13,7 +13,7 @@ class Photo extends Component {
   }
 
     render(){
-        const { photo} = this.props;
+        const { photo } = this.props;
     return (
         <img className="fit-picture" key={photo['id']}
                             id={photo['id']}
@@ -22,7 +22,7 @@ class Photo extends Component {
                             onDragStart={this.drag}
                             onDragEnd={this.dragEnd}
                             alt={photo.alt_description}
-                            
+
                             />
     )
     }
