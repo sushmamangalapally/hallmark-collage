@@ -1,6 +1,11 @@
 ## Project:
 ReactJS web app where users can build Photo Collage from UnSplash API
 
+![Screenshot](https://raw.githubusercontent.com/sushmamangalapally/hallmark-collage/master/Photo%20Collage%20Screenshot.png)
+
+![Screenshot - Download](githubusercontent)
+
+
 ## Things to Do:
 *  ~~Add functionality for users to add text or captions~~
 * ~~Maybe add an option to add an text~~
