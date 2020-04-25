@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/photocollage/static/css/main.29c3aaf3.chunk.css",
-    "main.js": "/photocollage/static/js/main.ca1b72c9.chunk.js",
-    "main.js.map": "/photocollage/static/js/main.ca1b72c9.chunk.js.map",
-    "runtime-main.js": "/photocollage/static/js/runtime-main.cc968093.js",
-    "runtime-main.js.map": "/photocollage/static/js/runtime-main.cc968093.js.map",
-    "static/js/2.42c73249.chunk.js": "/photocollage/static/js/2.42c73249.chunk.js",
-    "static/js/2.42c73249.chunk.js.map": "/photocollage/static/js/2.42c73249.chunk.js.map",
-    "index.html": "/photocollage/index.html",
-    "precache-manifest.05a62f5b8585b82f30f116631f98ad27.js": "/photocollage/precache-manifest.05a62f5b8585b82f30f116631f98ad27.js",
-    "service-worker.js": "/photocollage/service-worker.js",
-    "static/css/main.29c3aaf3.chunk.css.map": "/photocollage/static/css/main.29c3aaf3.chunk.css.map",
-    "static/js/2.42c73249.chunk.js.LICENSE.txt": "/photocollage/static/js/2.42c73249.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/photocollage/static/media/logo.5d5d9eef.svg"
+    "main.css": "/hallmark-collage/static/css/main.29c3aaf3.chunk.css",
+    "main.js": "/hallmark-collage/static/js/main.1b581749.chunk.js",
+    "main.js.map": "/hallmark-collage/static/js/main.1b581749.chunk.js.map",
+    "runtime-main.js": "/hallmark-collage/static/js/runtime-main.57b3aa50.js",
+    "runtime-main.js.map": "/hallmark-collage/static/js/runtime-main.57b3aa50.js.map",
+    "static/js/2.42c73249.chunk.js": "/hallmark-collage/static/js/2.42c73249.chunk.js",
+    "static/js/2.42c73249.chunk.js.map": "/hallmark-collage/static/js/2.42c73249.chunk.js.map",
+    "index.html": "/hallmark-collage/index.html",
+    "precache-manifest.774f0c3e47d5aa57de702126f6ceb701.js": "/hallmark-collage/precache-manifest.774f0c3e47d5aa57de702126f6ceb701.js",
+    "service-worker.js": "/hallmark-collage/service-worker.js",
+    "static/css/main.29c3aaf3.chunk.css.map": "/hallmark-collage/static/css/main.29c3aaf3.chunk.css.map",
+    "static/js/2.42c73249.chunk.js.LICENSE.txt": "/hallmark-collage/static/js/2.42c73249.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/hallmark-collage/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.cc968093.js",
+    "static/js/runtime-main.57b3aa50.js",
     "static/js/2.42c73249.chunk.js",
     "static/css/main.29c3aaf3.chunk.css",
-    "static/js/main.ca1b72c9.chunk.js"
+    "static/js/main.1b581749.chunk.js"
   ]
 }
