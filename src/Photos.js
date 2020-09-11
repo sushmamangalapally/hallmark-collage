@@ -9,7 +9,7 @@ class Photos extends Component {
     console.log(pictures);
     return (
       <div className="photos-results card-panel indigo lighten-3">
-        {pictures.length > 0 ? (
+        {pictures && pictures.length > 0 ? (
           pictures.map(pic => (
             <Photo key={pic.id} photo={pic} pictures={pictures} />
           ))

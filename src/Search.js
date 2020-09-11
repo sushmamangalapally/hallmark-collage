@@ -1,29 +1,27 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Photos from "./Photos";
 import Collage from "./Collage";
 import GoogleFontLoader from "react-google-font-loader";
 import axios from "axios";
 import M from "materialize-css";
 
-const flickrAPIKey =
+const unsplashAPIKey =
   "b6100f8fd2a15cfd6e7bab74d65a17e3cb4e8b6f3276e73e9dbb2b580ef1b44b";
 
-class Search extends Component {
-  state = {
-    pictures: [],
-    query: "",
-    noError: true,
-    text: "",
-    fontFam: "",
-    gBackgroundColor: "grey",
-    fontColor: "grey",
-    placement: "top"
-  };
+function Search() {
+  const [pictures, setPictures] = useState([]);
+  const [query, setQuery] = useState('');
+  const [noError, setNoError] = useState(true);
+  const [text, setText] = useState('');
+  const [gBackgroundColor, setGBackgroundColor] = useState('grey');
+  const [fontColor, setFontColor] = useState('grey');
+  const [placement, setPlacement] = useState('top');
+  const [fontFam, setFontFam] = useState('');
 
-  callAPI(query) {
+  const callAPI = (query) => {
     axios
       .get(
-        `https://api.unsplash.com/search/photos/?page=1&client_id=${flickrAPIKey}&query=${query}`
+        `https://api.unsplash.com/search/photos/?page=1&client_id=${unsplashAPIKey}&query=${query}`
       )
       .then(response => {
         console.log(response);
@@ -37,114 +35,103 @@ class Search extends Component {
             return picture["urls"]["small"];
           });
           console.log(picturesArr);
-          this.setState({
-            pictures: pictureObj,
-            noError: true
-          });
+          setPictures(pictureObj);
+          setNoError(true);
         },
         error => {
           if (error) {
             alert("Warning");
-            this.setState({
-              pictures: [],
-              noError: true
-            });
+          setPictures([]);
+          setNoError(true);
           }
         }
       );
   }
 
-  handleChange = query => {
+  async function handleChange(query) {
     if (query) {
-      this.callAPI(query);
+      callAPI(query);
     } else {
-      this.setState({
-        pictures: [],
-        query: query,
-        noError: true
-      });
+      setPictures([]);
+      setQuery(query);
+      setNoError(true);
     }
   };
 
-  updateText = text => {
+  const updateText = text => {
     if (text.length > 36) {
       console.log(text.length);
       alert("Can't enter more than 36 characters");
       return false;
     }
-
-    this.setState({
-      text: text
-    });
+    setText(text);
   };
 
-  updateFont = event => {
+  const updateFont = event => {
     console.log("updateFont");
     event.preventDefault();
     console.log(event);
     console.log(event.currentTarget.id);
-    this.setState({
-      fontFam: event.currentTarget.id
-    });
+    setFontFam(event.currentTarget.id);
   };
 
-  updateBackgroundColor = event => {
+  const updateBackgroundColor = event => {
     console.log("updateBackgroundColor");
     event.preventDefault();
     console.log(event);
     console.log(event.currentTarget.id);
-    this.setState({
-      gBackgroundColor: event.currentTarget.id
-    });
+    setGBackgroundColor(event.currentTarget.id);
   };
 
-  updateFontColor = event => {
+  const updateFontColor = event => {
     console.log("updateFontColor");
     event.preventDefault();
     console.log(event);
     console.log(event.currentTarget.id);
-    this.setState({
-      fontColor: event.currentTarget.id
-    });
+    setFontColor(event.currentTarget.id);
   };
 
-  updatePlacement = event => {
+  const updatePlacement = event => {
     console.log("updatePlacement");
     event.preventDefault();
     console.log(event);
     console.log(event.currentTarget.id);
 
-    this.setState({
-      placement: event.currentTarget.id
-    });
+    setPlacement(event.currentTarget.id);
   };
 
-  componentDidMount() {
+  useEffect(() => {
     if (
-      this.state.placement === "center" &&
+      placement === "center" &&
       document.getElementsByClassName("text-center")[0] !== undefined
     ) {
       document.getElementsByClassName("text-center")[0].style.backgroundImage = "";
     }
-  }
+}, []);
 
-  updatePhotosSearch = photo => {
+  const updatePhotosSearch = photo => {
     console.log(photo);
-    console.log(this.state.pictures);
+    console.log(pictures);
+    const currentPictures = pictures;
 
-    this.setState(currentState => ({
-      picture: currentState.pictures.map((picture, currIndex) => {
+    const photosSplit = () => {
+      currentPictures.map((picture, currIndex) => {
         if (picture.id === photo) {
-          return currentState.pictures.splice(currIndex, 1);
+          return currentPictures.splice(currIndex, 1);
         }
         return null;
       })
-    }));
+    }
 
-    console.log(this.state.pictures);
+    console.log(currentPictures);
+    photosSplit()
+    setPictures(currentPictures)
+    console.log(currentPictures);
+
+    // console.log(pictures);
   };
-  render() {
-    const { pictures, query, noError, updatePhotosSearch } = this.props;
+  
+    // const { pictures, query, noError, updatePhotosSearch } = this.props;
 
     document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".dropdown-trigger");
@@ -279,8 +266,8 @@ class Search extends Component {
                 name="greeting_text"
                 type="text"
                 className="validate"
-                value={this.state.text}
-                onChange={e => this.updateText(e.target.value)}
+                value={text}
+                onChange={e => updateText(e.target.value)}
                 placeholder="Your Own Inside Greeting Here."
               />
               <label class="active" for="greeting_text">
@@ -296,18 +283,18 @@ class Search extends Component {
                 href="#"
                 data-target="dropdown4"
               >
-                {this.state.placement}
+                {placement}
                 <i class="material-icons small">arrow_downward</i>
               </a>
 
               <ul id="dropdown4" className="dropdown-content">
-                <li onClick={this.updatePlacement.bind(this)} id="top">
+                <li onClick={updatePlacement.bind(this)} id="top">
                   <a href="#">Place text on the top</a>
                 </li>
-                <li onClick={this.updatePlacement.bind(this)} id="center">
+                <li onClick={updatePlacement.bind(this)} id="center">
                   <a href="#">Place text in the center</a>
                 </li>
-                <li onClick={this.updatePlacement.bind(this)} id="bottom">
+                <li onClick={updatePlacement.bind(this)} id="bottom">
                   <a href="#">Place text on the bottom</a>
                 </li>
               </ul>
@@ -322,10 +309,10 @@ class Search extends Component {
                 href="#"
                 data-target="dropdown1"
               >
-                {this.state.fontFam === "" ? (
+                {fontFam === "" ? (
                   "Font Style"
                 ) : (
-                  <span style={{ fontFamily: this.state.fontFam }}>
+                  <span style={{ fontFamily: fontFam }}>
                     Font Style
                   </span>
                 )}
@@ -338,7 +325,7 @@ class Search extends Component {
                     <li
                       style={{ fontFamily: gFont + ", monospaced" }}
                       id={gFont}
-                      onClick={this.updateFont.bind(this)}
+                      onClick={updateFont.bind(this)}
                     >
                       <a href="#">{gFont}</a>
                     </li>
@@ -354,11 +341,11 @@ class Search extends Component {
             <div class="input-field col s6">
               <a
                 className="dropdown-trigger waves-effect waves-light btn-large background"
-                style={{ backgroundColor: this.state.fontColor }}
+                style={{ backgroundColor: fontColor }}
                 href="#"
                 data-target="dropdown3"
               >
-                {this.state.fontColor === "grey" ? (
+                {fontColor === "grey" ? (
                   "Font Color"
                 ) : (
                   <span>Font Color</span>
@@ -372,7 +359,7 @@ class Search extends Component {
                     <li
                       className={color + ", lighten-3"}
                       id={fontColorsList[color]}
-                      onClick={this.updateFontColor.bind(this)}
+                      onClick={updateFontColor.bind(this)}
                       style={{ backgroundColor: fontColorsList[color] }}
                     >
                       <a href="#">{color}</a>
@@ -392,13 +379,13 @@ class Search extends Component {
             <div class="input-field col s6">
               <a
                 className={
-                  this.state.gBackgroundColor +
+                  gBackgroundColor +
                   " lighten-4 dropdown-trigger waves-effect waves-light btn-large background"
                 }
                 href="#"
                 data-target="dropdown2"
               >
-                {this.state.gBackgroundColor === "grey" ? (
+                {gBackgroundColor === "grey" ? (
                   "Background Color"
                 ) : (
                   <span>Background Color</span>
@@ -412,7 +399,7 @@ class Search extends Component {
                     <li
                       className={color + ", lighten-4"}
                       id={color}
-                      onClick={this.updateBackgroundColor.bind(this)}
+                      onClick={updateBackgroundColor.bind(this)}
                       style={{ backgroundColor: backgroundColorsList[color] }}
                     >
                       <a href="#">{color}</a>
@@ -427,7 +414,7 @@ class Search extends Component {
             </div>
             <div
               className={
-                this.state.gBackgroundColor +
+                gBackgroundColor +
                 " lighten-4 col s3 background-color"
               }
             />
@@ -439,30 +426,30 @@ class Search extends Component {
             </label>
             <input
               type="text"
-              onChange={e => this.handleChange(e.target.value)}
+              onChange={e => handleChange(e.target.value)}
               placeholder="Search by relevance of pictures"
             />
           </div>
 
           <Photos
-            pictures={this.state.pictures}
+            pictures={pictures}
             updatePhotosSearch={updatePhotosSearch}
           />
         </div>
         <Collage
-          pictures={this.state.pictures}
-          updatePhotosSearch={this.updatePhotosSearch}
-          text={this.state.text}
-          fontFam={this.state.fontFam}
-          gBackgroundColor={this.state.gBackgroundColor}
-          fontColor={this.state.fontColor}
-          placement={this.state.placement}
-          updateText={this.updateText}
-          updateFont={this.updateFont}
+          pictures={pictures}
+          updatePhotosSearch={updatePhotosSearch}
+          text={text}
+          fontFam={fontFam}
+          gBackgroundColor={gBackgroundColor}
+          fontColor={fontColor}
+          placement={placement}
+          updateText={updateText}
+          updateFont={updateFont}
         />
       </div>
     );
   }
-}
+
 
 export default Search;

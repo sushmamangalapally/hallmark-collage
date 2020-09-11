@@ -92,10 +92,13 @@ class Collage extends Component {
   }
 
   allowDrop = event => {
+    console.log('wtf')
     event.preventDefault();
   };
 
   drop = event => {
+    console.log('cry')
+    console.log(document.getElementById(data))
     var horizontallGrid = [
       "drag1",
       "drag2",
@@ -132,6 +135,7 @@ class Collage extends Component {
 
       this.props.updatePhotosSearch(data);
     } else {
+      alert('You must match picture according height and width!')
       return false;
     }
   };
