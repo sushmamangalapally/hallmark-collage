@@ -1,102 +1,34 @@
 import React, { Component } from "react";
 import domtoimage from "dom-to-image";
 
-class Collage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fname: "",
-      lname: "",
-      email: "",
-      phone: "",
-      formErrors: { fname: "", lname: "", email: "", phone: "" },
-      fnameValid: false,
-      lnameValid: false,
-      emailValid: false,
-      phoneValid: false,
-      formValid: false
-    };
+const Collage = ({
+      photo,
+      pictures,
+      updatePhotosSearch,
+      text,
+      fontFam,
+      gBackgroundColor,
+      fontColor,
+      placement,
+      updateText,
+      updateFont
+}) => {
+  // constructor(props) {
+  //   super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  // }
 
-  handleUserInput = e => {
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(value);
-    this.setState({ [name]: value }, () => {
-      this.validateField(name, value);
-    });
-  };
-
-  validateField(fieldName, value) {
-    let fieldValidationErrors = this.state.formErrors;
-    let fnameValid = this.state.fnameValid;
-    let lnameValid = this.state.lnameValid;
-    let emailValid = this.state.emailValid;
-    let phoneValid = this.state.phoneValid;
-
-    switch (fieldName) {
-      case "fname":
-        fnameValid = value.match(/^[a-zA-Z]*$/);
-        fieldValidationErrors.first = fnameValid ? "" : " name is invalid. ";
-        fieldValidationErrors.first +=
-          value.length >= 2 ? "" : " name should contain at least 2 chars. ";
-        break;
-      case "lname":
-        lnameValid = value.match(/^[a-zA-Z]*$/) && value.length >= 2;
-        fieldValidationErrors.last = lnameValid ? "" : " name is invalid. ";
-        fieldValidationErrors.last +=
-          value.length >= 2 ? "" : " name should contain at least 2 chars. ";
-        break;
-      case "email":
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        fieldValidationErrors.email = emailValid ? "" : " is invalid. ";
-        break;
-      case "phone":
-        phoneValid = value.length == 10;
-        fieldValidationErrors.phone = phoneValid
-          ? ""
-          : " should contain 10 digits exactly. ";
-        fieldValidationErrors.phone += value.match(/^\d+$/)
-          ? ""
-          : " should contain numbers only. ";
-        break;
-      default:
-        break;
-    }
-    this.setState(
-      {
-        formErrors: fieldValidationErrors,
-        fnameValid: fnameValid,
-        lnameValid: lnameValid,
-        emailValid: emailValid,
-        phoneValid: phoneValid
-      },
-      this.validateForm
-    );
-  }
-
-  validateForm() {
-    this.setState({
-      formValid: this.state.fnameValid && this.state.emailValid
-    });
-  }
-
-  errorClass(error) {
-    return error.length === 0 ? "" : "has-error";
-  }
-
-  handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
   }
 
-  allowDrop = event => {
+  const allowDrop = event => {
     console.log('wtf')
     event.preventDefault();
   };
 
-  drop = event => {
+  const drop = event => {
     console.log('cry')
     console.log(document.getElementById(data))
     var horizontallGrid = [
@@ -121,7 +53,7 @@ class Collage extends Component {
       img = document.getElementById(data).getAttribute("src");
       event.target.style.backgroundImage = "url(" + img + ")";
       document.getElementById(event.target.id).style.border = "3px solid #00000000";
-      this.props.updatePhotosSearch(data);
+      updatePhotosSearch(data);
     } else if (
       document.getElementById(data).clientHeight <=
         document.getElementById(data).clientWidth &&
@@ -133,14 +65,14 @@ class Collage extends Component {
 
       document.getElementById(event.target.id).style.border = "3px solid #00000000";
 
-      this.props.updatePhotosSearch(data);
+      updatePhotosSearch(data);
     } else {
       alert('You must match picture according height and width!')
       return false;
     }
   };
 
-  saveCollage = () => {
+  const saveCollage = () => {
     var getCanvas = document.getElementById("saveCollage");
 
     domtoimage.toJpeg(getCanvas, { quality: 0.95 }).then(function(dataUrl) {
@@ -151,18 +83,18 @@ class Collage extends Component {
     });
   };
 
-  render() {
-    const {
-      pictures,
-      updatePhotosSearch,
-      text,
-      fontFam,
-      gBackgroundColor,
-      fontColor,
-      placement,
-      updateText,
-      updateFont
-    } = this.props;
+  // render() {
+  //   const {
+  //     pictures,
+  //     updatePhotosSearch,
+  //     text,
+  //     fontFam,
+  //     gBackgroundColor,
+  //     fontColor,
+  //     placement,
+  //     updateText,
+  //     updateFont
+  //   } = this.props;
 
     return (
       <div className="container">
@@ -181,34 +113,19 @@ class Collage extends Component {
             ""
           )}
           <div className="gallery">
-            <figure
-              id="drag1"
-              className="gallery__item gallery__item--1"
-              onDrop={this.drop}
-              onDragOver={this.allowDrop}
-            >
-            </figure>
-            <figure
-              id="drag2"
-              className="gallery__item gallery__item--2"
-              onDrop={this.drop}
-              onDragOver={this.allowDrop}
-            >
-            </figure>
-            <figure
-              id="drag3"
-              className="gallery__item gallery__item--3"
-              onDrop={this.drop}
-              onDragOver={this.allowDrop}
-            >
-            </figure>
-            <figure
-              id="drag4"
-              className="gallery__item gallery__item--4"
-              onDrop={this.drop}
-              onDragOver={this.allowDrop}
-            >
-            </figure>
+            {
+              [...Array(4)].map((val, index) => {
+                return (
+                  <figure
+                    id={`drag${index+1}`}
+                    className={`gallery__item gallery__item--${index+1}`}
+                    onDrop={drop}
+                    onDragOver={allowDrop}
+                  >
+                  </figure>
+                )
+              })
+            }
             {placement === "center" ? (
               <div className="gallery__item gallery__item--5 text-center">
                 <h4
@@ -224,32 +141,25 @@ class Collage extends Component {
               <figure
                 id="drag5"
                 className="gallery__item gallery__item--5"
-                onDrop={this.drop}
-                onDragOver={this.allowDrop}
+                onDrop={drop}
+                onDragOver={allowDrop}
               />
             )}
 
-            <figure
-              id="drag6"
-              className="gallery__item gallery__item--6"
-              onDrop={this.drop}
-              onDragOver={this.allowDrop}
-            >
-            </figure>
-            <figure
-              id="drag7"
-              className="gallery__item gallery__item--7"
-              onDrop={this.drop}
-              onDragOver={this.allowDrop}
-            >
-            </figure>
-            <figure
-              id="drag8"
-              className="gallery__item gallery__item--8"
-              onDrop={this.drop}
-              onDragOver={this.allowDrop}
-            >
-            </figure>
+
+            {
+              [6, 7, 8].map((val, index) => {
+                return (
+                  <figure
+                    id={`drag${val}`}
+                    className={`gallery__item gallery__item--${val}`}
+                    onDrop={drop}
+                    onDragOver={allowDrop}
+                  >
+                  </figure>
+                )
+              })
+            }
           </div>
           {placement === "bottom" ? (
             <div class="bottom-align">
@@ -267,13 +177,13 @@ class Collage extends Component {
         </div>
         <a
           className="indigo lighten-4 btn-large right collage-btn"
-          onClick={this.saveCollage}
+          onClick={saveCollage}
         >
           Save Collage
         </a>
       </div>
     );
   }
-}
+
 
 export default Collage;

@@ -1,12 +1,15 @@
 import React, { Component, useState, useEffect } from "react";
 import Photos from "./Photos";
 import Collage from "./Collage";
+import LoadFont from "./LoadFont";
 import GoogleFontLoader from "react-google-font-loader";
 import axios from "axios";
-import M from "materialize-css";
+// import M from "materialize-css";
+import Photo from "./Photo";
+import apiConfig from './apiKeys';
+import assetsList from './assetsList';
+// import * from "spectre.css";
 
-const unsplashAPIKey =
-  "b6100f8fd2a15cfd6e7bab74d65a17e3cb4e8b6f3276e73e9dbb2b580ef1b44b";
 
 function Search() {
   const [pictures, setPictures] = useState([]);
@@ -21,7 +24,7 @@ function Search() {
   const callAPI = (query) => {
     axios
       .get(
-        `https://api.unsplash.com/search/photos/?page=1&client_id=${unsplashAPIKey}&query=${query}`
+        `https://api.unsplash.com/search/photos/?page=1&client_id=${apiConfig.unsplashAPIKey}&query=${query}`
       )
       .then(response => {
         console.log(response);
@@ -70,7 +73,6 @@ function Search() {
   const updateFont = event => {
     console.log("updateFont");
     event.preventDefault();
-    console.log(event);
     console.log(event.currentTarget.id);
     setFontFam(event.currentTarget.id);
   };
@@ -78,7 +80,6 @@ function Search() {
   const updateBackgroundColor = event => {
     console.log("updateBackgroundColor");
     event.preventDefault();
-    console.log(event);
     console.log(event.currentTarget.id);
     setGBackgroundColor(event.currentTarget.id);
   };
@@ -86,7 +87,6 @@ function Search() {
   const updateFontColor = event => {
     console.log("updateFontColor");
     event.preventDefault();
-    console.log(event);
     console.log(event.currentTarget.id);
     setFontColor(event.currentTarget.id);
   };
@@ -94,9 +94,7 @@ function Search() {
   const updatePlacement = event => {
     console.log("updatePlacement");
     event.preventDefault();
-    console.log(event);
     console.log(event.currentTarget.id);
-
     setPlacement(event.currentTarget.id);
   };
 
@@ -107,12 +105,17 @@ function Search() {
     ) {
       document.getElementsByClassName("text-center")[0].style.backgroundImage = "";
     }
-}, []);
 
-  const updatePhotosSearch = photo => {
+    // let elems = document.querySelectorAll(".dropdown-trigger");
+    // let instances = M.Dropdown.init(elems, {});
+  }, []);
+
+
+  function updatePhotosSearch(photo){
     console.log(photo);
     console.log(pictures);
-    const currentPictures = pictures;
+    const currentPictures =  [ ...pictures ];
+    console.log(currentPictures);
 
     const photosSplit = () => {
       currentPictures.map((picture, currIndex) => {
@@ -123,144 +126,22 @@ function Search() {
       })
     }
 
-    console.log(currentPictures);
     photosSplit()
     setPictures(currentPictures)
-    console.log(currentPictures);
 
-    // console.log(pictures);
   };
-  
-    // const { pictures, query, noError, updatePhotosSearch } = this.props;
 
-    document.addEventListener("DOMContentLoaded", function() {
-      var elems = document.querySelectorAll(".dropdown-trigger");
-      var instances = M.Dropdown.init(elems, {});
-    });
+    const colorKeys = Object.keys(assetsList.backgroundColorsList);
 
-    var getFonts = [
-      "Roboto",
-      "Fjalla One",
-      "Lobster",
-      "Abel",
-      "Fredoka One",
-      "Varela Round",
-      "Dancing Script",
-      "Shadows Into Light",
-      "Amatic SC",
-      "Amiri",
-      "Patua One",
-      "Permanent Marker"
-    ];
-
-    var backgroundColorsList = {
-      red: "#ef9a9a",
-      pink: "#f48fb1",
-      purple: "#ce93d8",
-      "deep-purple": "#b39ddb",
-      indigo: "#9fa8da",
-      blue: "#90caf9",
-      "light-blue": "#81d4fa",
-      cyan: "#80deea",
-      teal: "#80cbc4",
-      green: "#a5d6a7",
-      "light-green": "#c5e1a5",
-      lime: "#e6ee9c",
-      yellow: "#fff59d",
-      amber: "#ffe082",
-      orange: "#ffcc80",
-      "deep-orange": "#ffab91",
-      brown: "#bcaaa4",
-      grey: "#eeeeee",
-      "blue-grey": "#b0bec5",
-      white: "##f5f5f5"
-    };
-
-    var fontColorsList = {
-      red: "#e57373",
-      pink: "#f06292",
-      purple: "#ba68c8",
-      "deep-purple": "#9575cd",
-      indigo: "#7986cb",
-      blue: "#64b5f6",
-      "light-blue": "#4fc3f7",
-      cyan: "#4dd0e1",
-      teal: "#4db6ac",
-      green: "#81c784",
-      "light-green": "#aed581",
-      lime: "#dce775",
-      yellow: "#fff176",
-      amber: "#ffd54f",
-      orange: "#ffb74d",
-      "deep-orange": "#ff8a65",
-      brown: "#a1887f",
-      grey: "#e0e0e0",
-      "blue-grey": "#90a4ae"
-    };
-
-    const colorKeys = Object.keys(backgroundColorsList);
-
-    const fontColorKeys = Object.keys(fontColorsList);
+    const fontColorKeys = Object.keys(assetsList.fontColorsList);
     
     return (
-      <div className="whole-thing">
-        <GoogleFontLoader
-          fonts={[
-            {
-              font: "Roboto",
-              weights: [400, "400i"]
-            },
-            {
-              font: "Fjalla One",
-              weights: [400, 700]
-            },
-            {
-              font: "Lobster",
-              weights: [400, 700]
-            },
-            {
-              font: "Abel",
-              weights: [400, 700]
-            },
-            {
-              font: "Fredoka One",
-              weights: [400, 700]
-            },
-            {
-              font: "Varela Round",
-              weights: [400, 700]
-            },
-            {
-              font: "Dancing Script",
-              weights: [400, 700]
-            },
-            {
-              font: "Shadows Into Light",
-              weights: [400, 700]
-            },
-            {
-              font: "Amatic SC",
-              weights: [400, 700]
-            },
-            {
-              font: "Amiri",
-              weights: [400, 700]
-            },
-            {
-              font: "Patua One",
-              weights: [400, 700]
-            },
-            {
-              font: "Permanent Marker",
-              weights: [400, 700]
-            }
-          ]}
-          subsets={["cyrillic-ext", "greek"]}
-        />
-
+      <div className="main-app">
+        <LoadFont/>
         <div className="search-photos">
-          <div class="row">
-            <div class="input-field col s12">
+        <div className="section-main">
+          <div className="row">
+            <div className="input-field col s12">
               <input
                 id="greeting_text"
                 name="greeting_text"
@@ -270,21 +151,21 @@ function Search() {
                 onChange={e => updateText(e.target.value)}
                 placeholder="Your Own Inside Greeting Here."
               />
-              <label class="active" for="greeting_text">
+              <label className="active" for="greeting_text">
                 Enter Text
               </label>
             </div>
           </div>
           <div className="row">
-            <p class="adjustment">Greeting Text Alignment</p>
-            <div class="input-field col s6">
+            <p className="adjustment">Greeting Text Alignment</p>
+            <div className="input-field col s6">
               <a
                 className="dropdown-trigger waves-effect waves-light btn-large"
                 href="#"
                 data-target="dropdown4"
               >
                 {placement}
-                <i class="material-icons small">arrow_downward</i>
+                <i className="material-icons small">arrow_downward</i>
               </a>
 
               <ul id="dropdown4" className="dropdown-content">
@@ -301,9 +182,9 @@ function Search() {
             </div>
           </div>
 
-          <div class="row">
-            <p class="adjustment">Font Style and Color Adjustment</p>
-            <div class="input-field col s6">
+          <div className="row">
+            <p className="adjustment">Font Style and Color Adjustment</p>
+            <div className="input-field col s6">
               <a
                 className="dropdown-trigger waves-effect waves-light btn-large"
                 href="#"
@@ -316,13 +197,14 @@ function Search() {
                     Font Style
                   </span>
                 )}
-                <i class="material-icons small">arrow_downward</i>
+                <i className="material-icons small">arrow_downward</i>
               </a>
 
               <ul id="dropdown1" className="dropdown-content">
-                {getFonts.length > 0 ? (
-                  getFonts.map(gFont => (
+                {assetsList.getFonts.length > 0 ? (
+                  assetsList.getFonts.map(gFont => (
                     <li
+                      key={gFont}
                       style={{ fontFamily: gFont + ", monospaced" }}
                       id={gFont}
                       onClick={updateFont.bind(this)}
@@ -338,7 +220,7 @@ function Search() {
               </ul>
             </div>
 
-            <div class="input-field col s6">
+            <div className="input-field col s6">
               <a
                 className="dropdown-trigger waves-effect waves-light btn-large background"
                 style={{ backgroundColor: fontColor }}
@@ -350,17 +232,18 @@ function Search() {
                 ) : (
                   <span>Font Color</span>
                 )}
-                <i class="material-icons small">arrow_downward</i>
+                <i className="material-icons small">arrow_downward</i>
               </a>
 
               <ul id="dropdown3" className="dropdown-content">
-                {Object.entries(fontColorsList).length !== 0 ? (
+                {Object.entries(assetsList.fontColorsList).length !== 0 ? (
                   fontColorKeys.map(color => (
                     <li
+                      key={color}
                       className={color + ", lighten-3"}
-                      id={fontColorsList[color]}
+                      id={assetsList.fontColorsList[color]}
                       onClick={updateFontColor.bind(this)}
-                      style={{ backgroundColor: fontColorsList[color] }}
+                      style={{ backgroundColor: assetsList.fontColorsList[color] }}
                     >
                       <a href="#">{color}</a>
                     </li>
@@ -375,8 +258,8 @@ function Search() {
           </div>
 
           <div className="row">
-            <p class="adjustment">Background Color Adjustment</p>
-            <div class="input-field col s6">
+            <p className="adjustment">Background Color Adjustment</p>
+            <div className="input-field col s6">
               <a
                 className={
                   gBackgroundColor +
@@ -390,17 +273,17 @@ function Search() {
                 ) : (
                   <span>Background Color</span>
                 )}
-                <i class="material-icons small">arrow_downward</i>
+                <i className="material-icons small">arrow_downward</i>
               </a>
 
               <ul id="dropdown2" className="dropdown-content">
-                {Object.entries(backgroundColorsList).length !== 0 ? (
+                {Object.entries(assetsList.backgroundColorsList).length !== 0 ? (
                   colorKeys.map(color => (
                     <li
                       className={color + ", lighten-4"}
                       id={color}
                       onClick={updateBackgroundColor.bind(this)}
-                      style={{ backgroundColor: backgroundColorsList[color] }}
+                      style={{ backgroundColor: assetsList.backgroundColorsList[color] }}
                     >
                       <a href="#">{color}</a>
                     </li>
@@ -421,7 +304,7 @@ function Search() {
           </div>
 
           <div className="search-books-input-wrapper">
-            <label class="active" for="adding_photos_text">
+            <label className="active" for="adding_photos_text">
               Add Photos. Simply drag and drop the photos to the collage.
             </label>
             <input
@@ -430,14 +313,13 @@ function Search() {
               placeholder="Search by relevance of pictures"
             />
           </div>
+          </div>
 
           <Photos
             pictures={pictures}
-            updatePhotosSearch={updatePhotosSearch}
           />
         </div>
         <Collage
-          pictures={pictures}
           updatePhotosSearch={updatePhotosSearch}
           text={text}
           fontFam={fontFam}

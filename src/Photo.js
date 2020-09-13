@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 
-class Photo extends Component {
-  drag = event => {
+const Photo = ({photo}) => {
+  const drag = event => {
     console.log("drag");
     console.log(event);
     event.dataTransfer.setData("text", event.target.id);
   };
-
-  render() {
-    const { photo } = this.props;
     return (
       <img
         className="fit-picture"
@@ -16,11 +13,11 @@ class Photo extends Component {
         id={photo["id"]}
         src={photo["urls"]["thumb"]}
         draggable="true"
-        onDragStart={this.drag}
+        onDragStart={drag}
         alt={photo.alt_description}
       />
     );
-  }
 }
+
 
 export default Photo;

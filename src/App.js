@@ -7,7 +7,6 @@ import "./stylesheet/App.css";
 function App() {
 
   return (
-      // <Fragment>
         <div className="App">
           <nav>
             <div className="nav-wrapper indigo lighten-3">
@@ -16,44 +15,23 @@ function App() {
               </a>
             </div>
           </nav>
+          <header class="navbar">
+  <section class="navbar-section">
+    <a href="..." class="navbar-brand mr-2">Spectre.css</a>
+    <a href="..." class="btn btn-link">Docs</a>
+    <a href="..." class="btn btn-link">GitHub</a>
+  </section>
+  <section class="navbar-section">
+    <div class="input-group input-inline">
+      <input class="form-input" type="text" placeholder="search"/>
+      <button class="btn btn-primary input-group-btn">Search</button>
+    </div>
+  </section>
+</header>
 
           <Search/>
       </div>
-
-        
-        // </Fragment>
   );
 }
-// class App extends Component {
-//   constructor() {
-//     super(); //allows you to use this in the constructor.
-//     this.state = {
-//       pictures: [],
-//       query: "",
-//       noError: true
-//     };
-//   }
-
-//   render() {
-//     console.log(this.state.pictures);
-//     return (
-//       <div className="App">
-//         <nav>
-//           <div class="nav-wrapper indigo lighten-3">
-//             <a href="#" class="brand-logo header">
-//               Create Your Photo Collage
-//             </a>
-//           </div>
-//         </nav>
-
-//         <Search
-//           pictures={this.state.pictures}
-//           query={this.state.query}
-//           noError={this.state.noError}
-//         />
-//       </div>
-//     );
-//   }
-// }
 
 export default App;
