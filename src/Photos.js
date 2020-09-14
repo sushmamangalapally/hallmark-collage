@@ -1,22 +1,20 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import Photo from "./Photo";
-import axios from "axios";
 
-const Photos = ({pictures}) => {
-  console.log(pictures)
-
-
-
-
+const Photos = ({pictures, noPictures, searchTerm}) => {
+    console.log(pictures)
+    console.log(searchTerm)
     return (
-      
-      <div className="photos-results card-panel indigo lighten-3">
+      <div
+        className="photos-results card-panel indigo lighten-3"
+        style={{  margin: '5px 0px', borderRadius: '5px' }}
+      >
         {pictures && pictures.length > 0 ? (
           pictures.map(pic => (
             <Photo key={pic.id} photo={pic} pictures={pictures}/>
           ))
         ) : (
-          <div>No pictures</div>
+          <h2>{noPictures && searchTerm.length ? 'No results found for '+ searchTerm : 'No pictures yet'}</h2>
         )}
       </div>
     );

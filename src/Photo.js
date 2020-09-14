@@ -6,6 +6,10 @@ const Photo = ({photo}) => {
     console.log(event);
     event.dataTransfer.setData("text", event.target.id);
   };
+  const clickPhoto = event => {
+    console.log(event);
+     event.currentTarget.className += " active"
+  }
     return (
       <img
         className="fit-picture"
@@ -15,6 +19,7 @@ const Photo = ({photo}) => {
         draggable="true"
         onDragStart={drag}
         alt={photo.alt_description}
+        onClick={clickPhoto}
       />
     );
 }
