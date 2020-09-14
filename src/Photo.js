@@ -7,7 +7,7 @@ const Photo = ({photo}) => {
     event.dataTransfer.setData("text", event.target.id);
   };
   const clickPhoto = event => {
-    console.log(event);
+    // console.log(event);
      event.currentTarget.className += " active"
   }
     return (
