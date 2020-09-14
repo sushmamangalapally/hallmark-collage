@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/hallmark-collage/static/css/main.29c3aaf3.chunk.css",
-    "main.js": "/hallmark-collage/static/js/main.1b581749.chunk.js",
-    "main.js.map": "/hallmark-collage/static/js/main.1b581749.chunk.js.map",
+    "main.css": "/hallmark-collage/static/css/main.d28a957e.chunk.css",
+    "main.js": "/hallmark-collage/static/js/main.1f80914b.chunk.js",
+    "main.js.map": "/hallmark-collage/static/js/main.1f80914b.chunk.js.map",
     "runtime-main.js": "/hallmark-collage/static/js/runtime-main.57b3aa50.js",
     "runtime-main.js.map": "/hallmark-collage/static/js/runtime-main.57b3aa50.js.map",
-    "static/js/2.42c73249.chunk.js": "/hallmark-collage/static/js/2.42c73249.chunk.js",
-    "static/js/2.42c73249.chunk.js.map": "/hallmark-collage/static/js/2.42c73249.chunk.js.map",
+    "static/js/2.a5cda27a.chunk.js": "/hallmark-collage/static/js/2.a5cda27a.chunk.js",
+    "static/js/2.a5cda27a.chunk.js.map": "/hallmark-collage/static/js/2.a5cda27a.chunk.js.map",
     "index.html": "/hallmark-collage/index.html",
-    "precache-manifest.b012ed20d8c18919c358cc22bc2b432e.js": "/hallmark-collage/precache-manifest.b012ed20d8c18919c358cc22bc2b432e.js",
+    "precache-manifest.6650426f58fcc31a9f45c69a29589c0d.js": "/hallmark-collage/precache-manifest.6650426f58fcc31a9f45c69a29589c0d.js",
     "service-worker.js": "/hallmark-collage/service-worker.js",
-    "static/css/main.29c3aaf3.chunk.css.map": "/hallmark-collage/static/css/main.29c3aaf3.chunk.css.map",
-    "static/js/2.42c73249.chunk.js.LICENSE.txt": "/hallmark-collage/static/js/2.42c73249.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/hallmark-collage/static/media/logo.5d5d9eef.svg"
+    "static/css/main.d28a957e.chunk.css.map": "/hallmark-collage/static/css/main.d28a957e.chunk.css.map",
+    "static/js/2.a5cda27a.chunk.js.LICENSE.txt": "/hallmark-collage/static/js/2.a5cda27a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.57b3aa50.js",
-    "static/js/2.42c73249.chunk.js",
-    "static/css/main.29c3aaf3.chunk.css",
-    "static/js/main.1b581749.chunk.js"
+    "static/js/2.a5cda27a.chunk.js",
+    "static/css/main.d28a957e.chunk.css",
+    "static/js/main.1f80914b.chunk.js"
   ]
 }
