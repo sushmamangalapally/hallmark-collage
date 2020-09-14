@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hallmark-collage/static/css/main.d28a957e.chunk.css",
-    "main.js": "/hallmark-collage/static/js/main.1f80914b.chunk.js",
-    "main.js.map": "/hallmark-collage/static/js/main.1f80914b.chunk.js.map",
+    "main.js": "/hallmark-collage/static/js/main.f5a8dd1b.chunk.js",
+    "main.js.map": "/hallmark-collage/static/js/main.f5a8dd1b.chunk.js.map",
     "runtime-main.js": "/hallmark-collage/static/js/runtime-main.57b3aa50.js",
     "runtime-main.js.map": "/hallmark-collage/static/js/runtime-main.57b3aa50.js.map",
     "static/js/2.a5cda27a.chunk.js": "/hallmark-collage/static/js/2.a5cda27a.chunk.js",
     "static/js/2.a5cda27a.chunk.js.map": "/hallmark-collage/static/js/2.a5cda27a.chunk.js.map",
     "index.html": "/hallmark-collage/index.html",
-    "precache-manifest.6650426f58fcc31a9f45c69a29589c0d.js": "/hallmark-collage/precache-manifest.6650426f58fcc31a9f45c69a29589c0d.js",
+    "precache-manifest.7a602feb3466f0ec89ce93dcaeaae680.js": "/hallmark-collage/precache-manifest.7a602feb3466f0ec89ce93dcaeaae680.js",
     "service-worker.js": "/hallmark-collage/service-worker.js",
     "static/css/main.d28a957e.chunk.css.map": "/hallmark-collage/static/css/main.d28a957e.chunk.css.map",
     "static/js/2.a5cda27a.chunk.js.LICENSE.txt": "/hallmark-collage/static/js/2.a5cda27a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.57b3aa50.js",
     "static/js/2.a5cda27a.chunk.js",
     "static/css/main.d28a957e.chunk.css",
-    "static/js/main.1f80914b.chunk.js"
+    "static/js/main.f5a8dd1b.chunk.js"
   ]
 }
