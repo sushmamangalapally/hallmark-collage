@@ -43,7 +43,7 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId}) {
                         >
                             <div className="list-icon">
                                 <a href="#dropdowns">
-                                    {ele.value}
+                                    {((category === 'font') ? ele.value : ele.id)}
                                 </a>
                             </div>
                         </li>                    
