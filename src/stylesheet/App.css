@@ -375,3 +375,20 @@ div.container button.btn {
   height: 6vh;
   margin: 10px 0pc;
 }
+
+p.messageMobile {
+  display: none;
+}
+
+/* For mobile phones: */
+@media only screen and (max-device-width: 480px) {
+  div.search-photos, div.container {
+    display: none;
+  }
+  p.messageMobile {
+    display: block;
+  }
+  
+
+}
+

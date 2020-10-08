@@ -138,13 +138,13 @@ function Search() {
     return (
         <div className="main-app">
             <LoadFont />
+            <p className="messageMobile">Not mobile-friendly. Please use desktop version.</p>
             <div className="search-photos">
                 <div className="section-main">
                     <div className="row form-group">
                         <div className="input-field col s12">
                             <label className="active form-label" htmlFor="greeting_text">
-                                Enter Text
-                                <br/>
+                                <h2>Enter Text</h2>
                             </label>
                             <input
                                 id="greeting_text"
@@ -195,7 +195,8 @@ function Search() {
 
                     <div className="search-books-input-wrapper form-group">
                         <label className="active form-label" htmlFor="adding_photos_text">
-                            Add Photos. Simply drag and drop the photos to the
+                            <h2>Add Photos.</h2>
+                            Simply drag and drop the photos to the
                             collage.
                             <br/>
                             Search by relevance of pictures
