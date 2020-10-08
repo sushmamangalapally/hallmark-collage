@@ -24,18 +24,6 @@ const Photo = ({photo}) => {
       console.log(event)
       event.currentTarget.style.left = event.pageX - pictureLeft;
       event.currentTarget.style.right = event.pageX - pictureRight;
-    // event.dataTransfer.setData("text", event.target.id);
-      // var limits = this.parentElement.offsetWidth;
-    //   var _child = this.querySelector('.child');
-    //   var current_position = e.clientX - this.parentElement.getBoundingClientRect().x;
-
-    //   if (current_position < 0) {
-    //     current_position = 0;
-    //   } else if (current_position > limits) {
-    //     current_position = limits;
-    //   }
-
-    //   _child.style.width = current_position + 'px';
 
     }
     
