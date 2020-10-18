@@ -19,12 +19,13 @@ function Search() {
     const [placement, setPlacement] = useState("top");
     const [fontFam, setFontFam] = useState("");
     const [noPictures, setNoPictures] = useState(false);
+    const [page, setPage] = useState(1);
     
 
-    const callAPI = (query) => {
+    const callAPI = (page, queryText) => {
         axios
             .get(
-                `https://api.unsplash.com/search/photos/?page=1&client_id=${apiConfig.unsplashAPIKey}&query=${query}`
+                `https://api.unsplash.com/search/photos/?page=${page}&client_id=${apiConfig.unsplashAPIKey}&query=${queryText}`
             )
             .then((response) => {
                 console.log(response);
@@ -38,12 +39,13 @@ function Search() {
                         return picture["urls"]["small"];
                     });
                     console.log(picturesArr);
-                    setPictures(pictureObj);
+                    setPictures((page !== 1 && query === queryText) ? pictures.concat(pictureObj) : pictureObj);
                     setNoError(true);
                     if (picturesArr.length === 0) {
                       setNoPictures(true);
-                      setQuery(query);
-                    }
+                      setQuery(queryText);
+                    } 
+                    setQuery(queryText);
                 },
                 (error) => {
                     if (error) {
@@ -58,7 +60,8 @@ function Search() {
 
     async function handleChange(query) {
         if (query) {
-            callAPI(query);
+            setPage(1);
+            callAPI(page, query);
         } else {
             setPictures([]);
             setQuery(query);
@@ -104,6 +107,14 @@ function Search() {
         console.log(event.currentTarget.id);
         setPlacement(event.currentTarget.id);
     };
+
+    const loadMore = () => {
+        // alert('Laoding more')
+        // alert(page);
+        // alert(query);
+        setPage(page+1);
+        callAPI(page+1, query);
+    }
 
     useEffect(() => {
         if (
@@ -212,7 +223,7 @@ function Search() {
                     </div>
                 </div>
 
-                <Photos pictures={pictures} searchTerm={query} noPictures={noPictures}/>
+                <Photos pictures={pictures} searchTerm={query} noPictures={noPictures} loadMore={loadMore}/>
             </div>
             <Collage
                 updatePhotosSearch={updatePhotosSearch}
