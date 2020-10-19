@@ -39,7 +39,7 @@ function Search() {
                         return picture["urls"]["small"];
                     });
                     console.log(picturesArr);
-                    setPictures((page !== 1 && query === queryText) ? pictures.concat(pictureObj) : pictureObj);
+                    setPictures((page !== 1 && query === queryText) ? pictures.concat(pictureObj).filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i) : pictureObj);
                     setNoError(true);
                     if (picturesArr.length === 0) {
                       setNoPictures(true);
@@ -50,6 +50,7 @@ function Search() {
                 (error) => {
                     if (error) {
                         alert("Warning");
+                        alert("Pictures API loading requests too many");
                         setPictures([]);
                         setNoError(true);
                         setNoPictures(true);
@@ -113,7 +114,18 @@ function Search() {
         // alert(page);
         // alert(query);
         setPage(page+1);
+        // console.log('pictures')
+        // console.log(pictures)
+        const allImgs = document.querySelectorAll('div.photos-results img');
+        const lastImagePlacement = allImgs.length-1;
         callAPI(page+1, query);
+        // console.log('!pics!')
+
+        // console.log(pictures)
+        // console.log(lastImagePlacement)
+        const totalImagesLoaded = document.querySelectorAll('div.photos-results img');
+        console.log(totalImagesLoaded[lastImagePlacement]);
+        totalImagesLoaded[lastImagePlacement].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
     }
 
     useEffect(() => {
@@ -125,6 +137,8 @@ function Search() {
                 "text-center"
             )[0].style.backgroundImage = "";
         }
+        console.log('pictures23');
+        console.log(pictures);
     }, []);
 
     function updatePhotosSearch(photo) {
