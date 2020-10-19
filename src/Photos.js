@@ -20,7 +20,7 @@ const Photos = ({pictures, noPictures, searchTerm, loadMore}) => {
         ) : (
           <h2>{noPictures && searchTerm.length ? 'No results found for '+ searchTerm : 'No pictures yet'}</h2>
         )}
-        <div class="empty"></div>
+        {/* <div class="empty"></div> */}
       </div>
     );
   }
