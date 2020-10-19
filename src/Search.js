@@ -141,7 +141,7 @@ function Search() {
         }
         console.log('pictures23');
         console.log(pictures);
-    }, []);
+    }, [pictures, placement]);
 
     function updatePhotosSearch(photo) {
         console.log(photo);
