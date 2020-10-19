@@ -7,7 +7,7 @@ const SearchTerm = ({searchTerm, onSearchInput}) => (
         placeholder="Search Pictures"
         className="form-input"
         id="adding_photos_text"
-        value={searchTerm}
+        // value={searchTerm}
     />
 );
 
