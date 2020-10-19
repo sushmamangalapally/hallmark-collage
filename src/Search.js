@@ -5,6 +5,7 @@ import Collage from "./Collage";
 import LoadFont from "./LoadFont";
 import axios from "axios";
 import Dropdown from "./Dropdown";
+import SearchForm from './SearchForm';
 import apiConfig from "./apiKeys";
 import assetsList from "./assetsList";
 // import * from "spectre.css";
@@ -228,12 +229,11 @@ function Search() {
                             Search by relevance of pictures
                             <br/>
                         </label>
-                        <input
-                            type="text"
-                            onChange={(e) => handleChange(e.target.value)}
-                            placeholder="Search Pictures"
-                            className="form-input"
-                            id="adding_photos_text"
+
+                        <SearchForm
+                            searchTerm={query}
+                            onSearchInput={handleChange}
+                            // onSearchSubmit={handleSearchSubmit}
                         />
                     </div>
                 </div>
