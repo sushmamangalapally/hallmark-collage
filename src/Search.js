@@ -8,6 +8,7 @@ import Dropdown from "./Dropdown";
 import apiConfig from "./apiKeys";
 import assetsList from "./assetsList";
 // import * from "spectre.css";
+var arr = require('./fakePicture').arr;
 
 function Search() {
     const [pictures, setPictures] = useState([]);
@@ -49,9 +50,9 @@ function Search() {
                 },
                 (error) => {
                     if (error) {
-                        alert("Warning");
-                        alert("Pictures API loading requests too many");
-                        setPictures([]);
+                        alert("Warning: Pictures API loading requests too many. Using fake photo search data for testing purpose.");
+                        // alert("");
+                        setPictures(arr);
                         setNoError(true);
                         setNoPictures(true);
                     }
