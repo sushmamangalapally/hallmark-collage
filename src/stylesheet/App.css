@@ -284,7 +284,7 @@ border: 1px solid #ababba;
 box-shadow: 5px 5px #bbbdbe61;
 display: flex;
 flex-direction: column;
-height: 1500px;
+/* height: 1500px; */
 }
 
 .navbar {
