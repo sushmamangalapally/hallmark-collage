@@ -409,3 +409,20 @@ input#greeting_text {
   font-weight: 500;
   font-size: 20px;
 }
+
+
+/* width */
+div.photos-results::-webkit-scrollbar {
+  width: 20px;
+}
+ 
+/* Handle */
+div.photos-results::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+div.photos-results::-webkit-scrollbar-thumb:hover {
+  background: darkgrey; 
+}
