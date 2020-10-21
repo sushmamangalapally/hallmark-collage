@@ -246,7 +246,7 @@ div.background-color {
 }
 
 .row {
-  margin: 35px 0;
+  margin: 25px 0;
 }
 
 .instructions-drag-n-drop{
@@ -365,7 +365,7 @@ li.menu-item {
   background: #b2b2d9;
   font-weight: 800;
   color: mintcream;
-  font-size: 2em;
+  /* font-size: 2em; */
 }
 
 div.container button.btn {
@@ -407,4 +407,5 @@ input#greeting_text {
 .dropdown .btn-group .dropdown-toggle {
   color: #450063;
   font-weight: 500;
+  font-size: 20px;
 }
