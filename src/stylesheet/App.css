@@ -246,7 +246,7 @@ div.background-color {
 }
 
 .row {
-  margin: 3em 0;
+  margin: 35px 0;
 }
 
 .instructions-drag-n-drop{
@@ -267,7 +267,7 @@ div.background-color {
   padding: 10px;
 }
 
-.section-main {
+.search-photos{
 background: #3e4776;
 border-radius: 7px;
 padding: 15px;
@@ -279,14 +279,16 @@ border-radius: 7px;
 padding: 15px;
 color: #1b011b;
 font-size: 0.8vw;
-/* height: 100vh; */
+height: 100vh;
 border: 1px solid #ababba;
 box-shadow: 5px 5px #bbbdbe61;
-
+display: flex;
+flex-direction: column;
+height: 1500px;
 }
 
 .navbar {
-  font-size: 1vw 1vh;
+  font-size: 25px;
   padding: 15px;
   background: white;
 }
@@ -297,7 +299,7 @@ div.list-icon {
 }
 
 a.btn {
-  font-size: 2em;
+  font-size: 25px;
   /* height: 2em; */
   padding: 1vh 1vh;
   /* margin: 10px; */
@@ -354,7 +356,7 @@ input#greeting_text, div.search-books-input-wrapper input {
 }
 
 li.menu-item {
-  font-size: 2em;
+  font-size: 20px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -392,3 +394,17 @@ p.messageMobile {
 
 }
 
+
+label.form-label {
+  width: 20%;
+}
+
+input#greeting_text {
+  width: 80%;
+  margin-left: 10px;
+}
+
+.dropdown .btn-group .dropdown-toggle {
+  color: #450063;
+  font-weight: 500;
+}

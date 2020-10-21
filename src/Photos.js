@@ -11,12 +11,12 @@ const Photos = ({pictures, noPictures, searchTerm, loadMore}) => {
       >
         
           {pictures && pictures.length > 0 ? (
-            <div>
+            <>
               {pictures.map((pic, index) => (
                 <Photo key={pic.id+index} photo={pic} pictures={pictures}/>
               ))}
               <button class="btn btn-lg" onClick={loadMore}>Load More</button>
-            </div>
+            </>
         ) : (
           <h2>{noPictures && searchTerm.length ? 'No results found for '+ searchTerm : 'No pictures yet'}</h2>
         )}

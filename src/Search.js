@@ -171,7 +171,7 @@ function Search() {
                     <div className="row form-group">
                         <div className="input-field col s12">
                             <label className="active form-label" htmlFor="greeting_text">
-                                <h2>Enter Text</h2>
+                                <b>Enter Text</b>
                             </label>
                             <input
                                 id="greeting_text"
@@ -222,7 +222,7 @@ function Search() {
 
                     <div className="search-books-input-wrapper form-group">
                         <label className="active form-label" htmlFor="adding_photos_text">
-                            <h2>Add Photos.</h2>
+                            <p><b>Add Photos</b></p>
                             Simply drag and drop the photos to the
                             collage.
                             <br/>
