@@ -18,11 +18,13 @@ const Collage = ({
     }
 
     const allowDrop = (event) => {
+        console.log("allowdropppp");
+        console.log(event);
         event.preventDefault();
     };
 
     const drop = (event) => {
-        console.log(document.getElementById(data));
+        console.log("droppppppppp");
         var horizontallGrid = [
             "drag1",
             "drag2",
@@ -35,6 +37,10 @@ const Collage = ({
         event.preventDefault();
 
         var data = event.dataTransfer.getData("text");
+        console.log(document.getElementById(data));
+        if (document.getElementById(data) === null) {
+            return;
+        }
 
         var img = undefined;
         if (
@@ -178,7 +184,9 @@ const Collage = ({
                     ""
                 )}
             </div>
-            <button className="btn btn-lg" onClick={saveCollage}>Save Collage</button>
+            <button className="btn btn-lg" onClick={saveCollage}>
+                Save Collage
+            </button>
         </div>
     );
 };
