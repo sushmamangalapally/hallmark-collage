@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/hallmark-collage/precache-manifest.9d3b5167cc54c02ffb1de7c2126c0478.js"
+  "/hallmark-collage/precache-manifest.655d1b4d37ad92b1d6cef421c5f0a398.js"
 );
 
 self.addEventListener('message', (event) => {
