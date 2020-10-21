@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "484f2d9b5143317ad39b217761e43f06",
+    "revision": "f95fb89837dc25be80c9bf2e139994c4",
     "url": "/hallmark-collage/index.html"
   },
   {
-    "revision": "916abd3ba888e13d9cda",
-    "url": "/hallmark-collage/static/css/main.4ed65046.chunk.css"
+    "revision": "c9f7325353bbeced4392",
+    "url": "/hallmark-collage/static/css/main.825ef1ee.chunk.css"
   },
   {
     "revision": "d5c3b4bfa74956555983",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hallmark-collage/static/js/2.81a3f06f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "916abd3ba888e13d9cda",
+    "revision": "c9f7325353bbeced4392",
     "url": "/hallmark-collage/static/js/main.8c213461.chunk.js"
   },
   {
