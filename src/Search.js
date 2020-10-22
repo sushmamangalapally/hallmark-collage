@@ -190,7 +190,11 @@ function Search() {
                       updateFunction={updatePlacement}
                       array={assetsList.alignment}
                       ulId="dropdown4"
-                      category='text'
+                      category='placement'
+                      fontFam={fontFam}
+                      placement={placement}
+                      fontColor={fontColor}
+                      gBackgroundColor={gBackgroundColor}
                     />
 
                     <Dropdown 
@@ -200,6 +204,10 @@ function Search() {
                       array={assetsList.getFonts}
                       category='font'
                       ulId="dropdown1"
+                      fontFam={fontFam}
+                      placement={placement}
+                      fontColor={fontColor}
+                      gBackgroundColor={gBackgroundColor}
                     />
 
                     <Dropdown 
@@ -209,6 +217,10 @@ function Search() {
                       array={assetsList.fontColorsList}
                       category='font-color'
                       ulId="dropdown3"
+                      fontFam={fontFam}
+                      placement={placement}
+                      fontColor={fontColor}
+                      gBackgroundColor={gBackgroundColor}
                     />
 
                     <Dropdown 
@@ -216,8 +228,12 @@ function Search() {
                       subTitle='Background Color'
                       updateFunction={updateBackgroundColor}
                       array={assetsList.backgroundColorsList}
-                      category='font-color'
+                      category='background-color'
                       ulId="dropdown2"
+                      fontFam={fontFam}
+                      placement={placement}
+                      fontColor={fontColor}
+                      gBackgroundColor={gBackgroundColor}
                     />
 
                     <div className="search-books-input-wrapper form-group">

@@ -1,12 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component, useEffect, useState, Fragment }  from "react";
 
-function Dropdown({title, subTitle, updateFunction, array, category, ulId}) {
+function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontFam, placement, fontColor, gBackgroundColor}) {
     // updateFunction = updateFunction.bind(this);
     console.log(updateFunction)
 
     console.log(array)
     // const arrObj = Object.keys(obj);
+    const expandMenu = (event) => {
+        console.log('expandMenu')
+        console.log(event);
+        console.log(this);
+        console.log(event.target.parentElement.querySelector('a'))
+    }
+    const goUpDown = (event) => {
+        let key = event.keyCode;
+        console.log(key)
+    }
   return (
     <div className="row">
         {/* <p className="adjustment">{title}</p> */}
@@ -16,6 +26,9 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId}) {
                     href="#"
                     className="btn dropdown-toggle"
                     tabIndex="0"
+                    aria-expanded="false"
+                    onClick={expandMenu}
+                    // id={ulId+'_a'}
                 >
                     {subTitle}
                     <i className="icon icon-caret"></i>
@@ -23,6 +36,9 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId}) {
                 <ul
                     id={ulId}
                     className="menu dropdown-content"
+                    tabindex="-1"
+                    role="listbox"
+                            onKeyPress={goUpDown}
                 >
                 {
                     array.map((ele) => 
@@ -50,6 +66,14 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId}) {
                     )
                 }
                 </ul>
+            </div>
+            <div className="display-value">
+                
+                    {category === 'font' ? <p style={{fontFamily: fontFam + ", monospaced"}}>{fontFam}</p> : ''}
+                    {category === 'font-color' ? <p style={{color: fontColor}}>{fontColor}</p> : ''}
+                    {category === 'background-color' ? <p style={{backgroundColor: gBackgroundColor}}>{gBackgroundColor}</p> : ''}
+                    {category === 'placement' ? <p>{placement}</p> : ''}
+                
             </div>
         </div>
     </div>
