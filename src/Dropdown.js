@@ -8,14 +8,50 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
     console.log(array)
     // const arrObj = Object.keys(obj);
     const expandMenu = (event) => {
+        const ENTER_KEY_CODE = 13;
+        const DOWN_ARROW_KEY_CODE = 40;
+        const UP_ARROW_KEY_CODE = 38;
+        const ESCAPE_KEY_CODE = 27;
         console.log('expandMenu')
         console.log(event);
         console.log(this);
-        console.log(event.target.parentElement.querySelector('a'))
+        console.log(event.target.parentElement.querySelector('ul'));
+        if (ENTER_KEY_CODE === event.keyCode) {
+            event.target.parentElement.querySelector('ul').setAttribute('style', 'display: block');
+        }
+        else if (ESCAPE_KEY_CODE === event.keyCode) {
+            event.target.parentElement.querySelector('ul').setAttribute('style', 'display: none');
+        }
     }
     const goUpDown = (event) => {
+        console.log(event)
+        console.log(event.currentTarget)
+        console.log(event.target)
         let key = event.keyCode;
-        console.log(key)
+        if (event.keyCode === 40) {
+            if (event.currentTarget.nextElementSibling) {
+                event.currentTarget.nextElementSibling.focus();
+            }
+        }
+        if (event.keyCode === 38) {
+            if (event.currentTarget.previousElementSibling) {
+                event.currentTarget.previousElementSibling.focus();
+            }
+        }
+        if (event.keyCode === 13) {
+            // updateFunction();
+        }
+        console.log(key);
+        if (event.currentTarget.classList.contains('last')) {
+            console.log(event.currentTarget)
+            console.log(event.currentTarget.parentElement)
+            // debugger;
+            const ul = event.currentTarget.parentElement;
+            if (key === 9) {
+                ul.setAttribute('style', 'display: none');
+            }
+        }
+        console.log('goupdow ')
     }
   return (
     <div className="row">
@@ -28,6 +64,7 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                     tabIndex="0"
                     aria-expanded="false"
                     onClick={expandMenu}
+                    onKeyDown={expandMenu}
                     // id={ulId+'_a'}
                 >
                     {subTitle}
@@ -41,7 +78,8 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                             onKeyPress={goUpDown}
                 >
                 {
-                    array.map((ele) => 
+                    // const arrLen = array.length;
+                    array.map((ele, index) => 
                         <li
                             role="option"
                             aria-selected="true"
@@ -49,12 +87,14 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                             id={ele.id}
                             key={ele.id}
                             data-value={ele.value}
-                            className="menu-item"
+                            className={((array[index+1] ? 'menu-item' : 'menu-item last'))}
+                            onKeyDown={goUpDown}
+                            tabindex="1"
                             style={{
                                 fontFamily:
                                     ((category === 'font') ? ele.value + ", monospaced" : ''),
 
-                                backgroundColor: ((category === 'font-color') ? ele.value : '')
+                                backgroundColor: ((category === 'font-color' || category === 'background-color') ? ele.value : '')
                             }}
                         >
                             <div className="list-icon">
