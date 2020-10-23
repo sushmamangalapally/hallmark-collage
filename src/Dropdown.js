@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component, useEffect, useState, Fragment }  from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontFam, placement, fontColor, gBackgroundColor}) {
     // updateFunction = updateFunction.bind(this);
@@ -65,6 +67,10 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                         </li>                    
                     )
                 }
+                <FontAwesomeIcon icon={faArrowDown} />
+                
+
+<i class="fas fa-caret-down"></i>
                 </ul>
             </div>
             <div className="display-value">
