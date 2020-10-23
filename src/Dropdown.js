@@ -13,7 +13,16 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
         console.log('expandMenu')
         console.log(event);
         console.log(this);
-        console.log(event.target.parentElement.querySelector('a'))
+        console.log(event.currentTarget.parentElement.querySelector('a'))
+        const ulListExpanded = event.currentTarget.parentElement.querySelector('ul');
+        console.log(ulListExpanded)
+        ulListExpanded.setAttribute('style', 'display: block');
+    }
+    const isSelected = (event) => {
+        console.log('isSelected')
+        console.log(event);
+        console.log(this);
+
     }
     const goUpDown = (event) => {
         let key = event.keyCode;
@@ -23,9 +32,9 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
     <div className="row">
         {/* <p className="adjustment">{title}</p> */}
         <div className="dropdown">
+            Select {subTitle}
             <div className="btn-group dropdown dropdown-content">
-                <a
-                    href="#"
+                <span
                     className="btn dropdown-toggle"
                     tabIndex="0"
                     aria-expanded="false"
@@ -34,24 +43,40 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                 >
                     {subTitle}
                     <i className="icon icon-caret"></i>
-                </a>
+
+                <FontAwesomeIcon icon={faArrowDown} />
+                </span>
                 <ul
                     id={ulId}
                     className="menu dropdown-content"
                     tabindex="-1"
                     role="listbox"
-                            onKeyPress={goUpDown}
+                    onKeyPress={goUpDown}
+                    aria-expanded="false"
                 >
+                <li
+                    role="button"
+                    aria-labelledby="dropdown-label"
+                    id="dropdown__selected"
+                    tabindex="0"
+                >
+                
+                    {category === 'font' ? fontFam : ''}
+                    {category === 'font-color' ? fontColor : ''}
+                    {category === 'background-color' ? gBackgroundColor : ''}
+                    {category === 'placement' ? placement : ''}
+                </li>
                 {
                     array.map((ele) => 
                         <li
                             role="option"
-                            aria-selected="true"
+                            aria-selected="false"
                             onClick={updateFunction}
                             id={ele.id}
                             key={ele.id}
                             data-value={ele.value}
                             className="menu-item"
+                            onClick={isSelected}
                             style={{
                                 fontFamily:
                                     ((category === 'font') ? ele.value + ", monospaced" : ''),
@@ -67,7 +92,6 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                         </li>                    
                     )
                 }
-                <FontAwesomeIcon icon={faArrowDown} />
                 
 
 <i class="fas fa-caret-down"></i>
