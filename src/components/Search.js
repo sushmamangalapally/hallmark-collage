@@ -2,14 +2,13 @@
 import React, { useState, useEffect } from "react";
 import Photos from "./Photos";
 import Collage from "./Collage";
-import LoadFont from "./LoadFont";
+import LoadFont from "../assets/LoadFont";
 import axios from "axios";
 import Dropdown from "./Dropdown";
 import SearchForm from './SearchForm';
-import apiConfig from "./apiKeys";
-import assetsList from "./assetsList";
-// import * from "spectre.css";
-var arr = require('./fakePicture').arr;
+import apiConfig from "../assets/apiKeys";
+import assetsList from "../assets/assetsList";
+var arr = require('../assets/fakePicture').arr;
 
 function Search() {
     const [pictures, setPictures] = useState([]);

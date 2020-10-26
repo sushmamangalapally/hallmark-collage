@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState, Fragment }  from "react";
-import Collage from "./Collage";
-import Search from "./Search";
+import Collage from "./components/Collage";
+import Search from "./components/Search";
 import "./stylesheet/App.css";
 
 function App() {
