@@ -137,7 +137,7 @@ const Photo = ({photo, updatePhotosSearch}) => {
               data-index={index}
             >
               {/* <a href="#"> */}
-                #{index}
+                #{index} {(index === 3 || index === 8) ? 'Vertical' : 'Horizontal'}
               {/* </a> */}
             </li>
           ))
