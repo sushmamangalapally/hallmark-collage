@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Photo from "./Photo";
 
-const Photos = ({pictures, noPictures, searchTerm, loadMore}) => {
+const Photos = ({pictures, noPictures, searchTerm, loadMore, updatePhotosSearch}) => {
     console.log(pictures)
     console.log(searchTerm)
     return (
@@ -13,7 +13,7 @@ const Photos = ({pictures, noPictures, searchTerm, loadMore}) => {
           {pictures && pictures.length > 0 ? (
             <>
               {pictures.map((pic, index) => (
-                <Photo key={pic.id+index} photo={pic} pictures={pictures}/>
+                <Photo key={pic.id+index} photo={pic} pictures={pictures} updatePhotosSearch={updatePhotosSearch}/>
               ))}
               <button class="btn btn-lg" onClick={loadMore}>Load More</button>
             </>

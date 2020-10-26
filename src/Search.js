@@ -254,7 +254,7 @@ function Search() {
                     </div>
                 </div>
 
-                <Photos pictures={pictures} searchTerm={query} noPictures={noPictures} loadMore={loadMore}/>
+                <Photos pictures={pictures} searchTerm={query} noPictures={noPictures} loadMore={loadMore} updatePhotosSearch={updatePhotosSearch}/>
             </div>
             <Collage
                 updatePhotosSearch={updatePhotosSearch}

@@ -458,3 +458,25 @@ div.dropdown a {
   border-radius: 10px!important;
 }
 
+.image-container {
+  display: inline-block;
+  position: relative;
+}
+
+.image-container svg {
+  position: absolute;
+  right: 0;
+  opacity: .8;
+  /* padding: 3px; */
+  border: 3px solid white;
+
+}
+
+.image-container ul.menu {
+  display: none;
+  visibility: hidden;
+}
+
+.image-container ul.menu li{
+  cursor: pointer;
+}
