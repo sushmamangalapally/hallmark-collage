@@ -73,7 +73,7 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                 <ul
                     id={ulId}
                     className="menu dropdown-content"
-                    tabindex="-1"
+                    tabIndex="-1"
                     role="listbox"
                             onKeyPress={goUpDown}
                 >
@@ -89,7 +89,7 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                             data-value={ele.value}
                             className={((array[index+1] ? 'menu-item' : 'menu-item last'))}
                             onKeyDown={goUpDown}
-                            tabindex="1"
+                            tabIndex="1"
                             style={{
                                 fontFamily:
                                     ((category === 'font') ? ele.value + ", monospaced" : ''),

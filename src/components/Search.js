@@ -21,49 +21,14 @@ function Search() {
     const [fontFam, setFontFam] = useState("");
     const [noPictures, setNoPictures] = useState(false);
     const [page, setPage] = useState(1);
-    
+    const [isLoading, setIsLoading] = useState(true);
 
-    const callAPI = (page, queryText) => {
-        axios
-            .get(
-                `https://api.unsplash.com/search/photos/?page=${page}&client_id=${apiConfig.unsplashAPIKey}&query=${queryText}`
-            )
-            .then((response) => {
-                console.log(response);
-                return response.data.results;
-            })
-            .then(
-                (jsonData) => {
-                    console.log(jsonData);
-                    let pictureObj = jsonData;
-                    let picturesArr = jsonData.map((picture) => {
-                        return picture["urls"]["small"];
-                    });
-                    console.log(picturesArr);
-                    setPictures((page !== 1 && query === queryText) ? pictures.concat(pictureObj).filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i) : pictureObj);
-                    setNoError(true);
-                    if (picturesArr.length === 0) {
-                      setNoPictures(true);
-                      setQuery(queryText);
-                    } 
-                    setQuery(queryText);
-                },
-                (error) => {
-                    if (error) {
-                        alert("Warning: Pictures API loading requests too many. Using fake photo search data for testing purpose.");
-                        // alert("");
-                        setPictures(arr);
-                        setNoError(true);
-                        setNoPictures(true);
-                    }
-                }
-            );
-    };
-
-    async function handleChange(query) {
+    function handleChange(query) {
+        setIsLoading(true);
         if (query) {
             setPage(1);
-            callAPI(page, query);
+            setQuery(query);
+            // callAPI(page, query);
         } else {
             setPictures([]);
             setQuery(query);
@@ -114,12 +79,14 @@ function Search() {
         // alert('Laoding more')
         // alert(page);
         // alert(query);
-        setPage(page+1);
         // console.log('pictures')
         // console.log(pictures)
         const allImgs = document.querySelectorAll('div.photos-results img');
         const lastImagePlacement = allImgs.length-1;
-        callAPI(page+1, query);
+        // setPage()
+        setIsLoading(true);
+        setPage(page+1);
+        // callAPI(page+1, query);
         // console.log('!pics!')
 
         // console.log(pictures)
@@ -130,6 +97,34 @@ function Search() {
     }
 
     useEffect(() => {
+        const fetchItems = async () => {
+            const result = await axios(`https://api.unsplash.com/search/photos/?page=${page}&client_id=${apiConfig.unsplashAPIKey}&query=${query}`);
+            console.log('RESULT');
+            console.log(result);
+            // console.log(result.data);
+            if (result &&  result.data.results) {
+                let pictureObj = result.data.results;
+                let picturesArr = pictureObj.map((picture) => {
+                    return picture["urls"]["small"];
+                });
+                console.log(picturesArr);
+                // setPictures(pictureObj);
+                setPictures(pictures => (page !== 1) ? pictures.concat(pictureObj).filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i) : pictureObj);
+                setNoError(true);
+                if (picturesArr.length === 0) {
+                    setNoPictures(true);
+                    setIsLoading(false);
+                }
+            } else {
+                alert("Warning: Pictures API loading requests too many. Using fake photo search data for testing purpose.");
+                setPictures(arr);
+                setNoError(true);
+                setNoPictures(true);
+                setIsLoading(false);
+            }
+            // setItems(result.data);
+        }
+        fetchItems();
         if (
             placement === "center" &&
             document.getElementsByClassName("text-center")[0] !== undefined
@@ -138,26 +133,27 @@ function Search() {
                 "text-center"
             )[0].style.backgroundImage = "";
         }
-        console.log('pictures23');
-        console.log(pictures);
-    }, [pictures, placement]);
+    }, [page, query, placement]);
 
     function updatePhotosSearch(photo) {
         console.log(photo);
         console.log(pictures);
-        const currentPictures = [...pictures];
+        let currentPictures = [...pictures];
         console.log(currentPictures);
 
-        const photosSplit = () => {
-            currentPictures.map((picture, currIndex) => {
-                if (picture.id === photo) {
-                    return currentPictures.splice(currIndex, 1);
-                }
-                return null;
-            });
-        };
+        // const photosSplit = () => {
+        //     currentPictures.map((picture, currIndex) => {
+        //         if (picture.id === photo) {
+        //             return currentPictures.splice(currIndex, 1);
+        //         }
+        //         return null;
+        //     });
+        // };
+        currentPictures = currentPictures.filter(picture => picture.id !== photo);
+        console.log('12currentPictures')
+        console.log(currentPictures)
 
-        photosSplit();
+        // photosSplit();
         setPictures(currentPictures);
     }
 
@@ -253,7 +249,7 @@ function Search() {
                     </div>
                 </div>
 
-                <Photos pictures={pictures} searchTerm={query} noPictures={noPictures} loadMore={loadMore} updatePhotosSearch={updatePhotosSearch}/>
+                <Photos pictures={pictures} searchTerm={query} noPictures={noPictures} loadMore={loadMore} updatePhotosSearch={updatePhotosSearch} isLoading={isLoading}/>
             </div>
             <Collage
                 updatePhotosSearch={updatePhotosSearch}

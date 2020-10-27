@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import Photo from "./Photo";
+import spinner from '../assets/spinner.gif'
 
-const Photos = ({pictures, noPictures, searchTerm, loadMore, updatePhotosSearch}) => {
+const Photos = ({pictures, noPictures, searchTerm, loadMore, updatePhotosSearch, isLoading}) => {
     console.log(pictures)
     console.log(searchTerm)
     return (
@@ -18,7 +19,7 @@ const Photos = ({pictures, noPictures, searchTerm, loadMore, updatePhotosSearch}
               <button class="btn btn-lg" onClick={loadMore}>Load More</button>
             </>
         ) : (
-          <h2>{noPictures && searchTerm.length ? 'No results found for '+ searchTerm : 'No pictures yet'}</h2>
+          <h2>{isLoading && searchTerm.length ? <img src={spinner} style={{width: '50px', margin: 'auto', display: 'block'}} alt="Loading"/> : (noPictures && searchTerm.length ? 'No results found for '+ searchTerm : 'No pictures yet')}</h2>
         )}
         {/* <div class="empty"></div> */}
       </div>

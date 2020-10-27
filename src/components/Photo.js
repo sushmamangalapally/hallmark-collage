@@ -118,23 +118,24 @@ const Photo = ({photo, updatePhotosSearch}) => {
           onMouseDown={ mouseDown }
           onMouseMove={ mouseMove }
           onMouseUp={ mouseUp }
-          tabindex="0"
+          tabIndex="0"
         />
         <FontAwesomeIcon
           icon={faExpandArrowsAlt}
-          tabindex="0" 
+          tabIndex="0" 
           onClick={expandMenu}
           onKeyPress={expandMenu}
         />
-        <ul class="menu">
+        <ul className="menu">
         {
           [1,2,3,4,5,6,7,8].map((index) => (
             <li
-              class="menu-item"
-              tabindex="0"
+              className="menu-item"
+              tabIndex="0"
               onKeyPress={dragPicture}
               onClick={dragPicture}
               data-index={index}
+              key={index}
             >
               {/* <a href="#"> */}
                 #{index} {(index === 3 || index === 8) ? 'Vertical' : 'Horizontal'}
