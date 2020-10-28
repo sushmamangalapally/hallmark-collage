@@ -3,7 +3,9 @@ ReactJS web app where users can build Photo Collage from UnSplash API
 
 Link to view web app: [https://sushmamangalapally.github.io/hallmark-collage/](https://sushmamangalapally.github.io/hallmark-collage/)
 
-![Screenshot](https://raw.githubusercontent.com/sushmamangalapally/hallmark-collage/master/Photo%20Collage%20Screenshot1.png)
+![Screenshot - GIF](https://raw.githubusercontent.com/sushmamangalapally/hallmark-collage/master/photo_collage.gif)
+
+![Screenshot](https://raw.githubusercontent.com/sushmamangalapally/hallmark-collage/master/Photo%20Collage%20Screenshot2.png)
 
 ![Screenshot - Download](https://raw.githubusercontent.com/sushmamangalapally/hallmark-collage/master/Photo%20Collage%20Screenshot%20Downloadable.png)
 
