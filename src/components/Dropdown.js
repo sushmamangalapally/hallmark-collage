@@ -1,12 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component, useEffect, useState, Fragment }  from "react";
 
-function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontFam, placement, fontColor, gBackgroundColor}) {
-    // updateFunction = updateFunction.bind(this);
-    console.log(updateFunction)
-
-    console.log(array)
-    // const arrObj = Object.keys(obj);
+function Dropdown({title, subTitle, updatePlacement, array, category, ulId, fontFam, placement, fontColor, gBackgroundColor}) {
     const expandMenu = (event) => {
         const ENTER_KEY_CODE = 13;
         const DOWN_ARROW_KEY_CODE = 40;
@@ -55,7 +50,6 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
     }
   return (
     <div className="row">
-        {/* <p className="adjustment">{title}</p> */}
         <div className="dropdown">
             <div className="btn-group dropdown dropdown-content">
                 <a
@@ -65,7 +59,6 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                     aria-expanded="false"
                     onClick={expandMenu}
                     onKeyDown={expandMenu}
-                    // id={ulId+'_a'}
                 >
                     {subTitle}
                     <i className="icon icon-caret"></i>
@@ -78,12 +71,11 @@ function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontF
                             onKeyPress={goUpDown}
                 >
                 {
-                    // const arrLen = array.length;
                     array.map((ele, index) => 
                         <li
                             role="option"
                             aria-selected="true"
-                            onClick={updateFunction}
+                            onClick={updatePlacement}
                             id={ele.id}
                             key={ele.id}
                             data-value={ele.value}

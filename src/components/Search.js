@@ -182,7 +182,7 @@ function Search() {
                     <Dropdown 
                       title='Greeting Text Alignment'
                       subTitle='Text Alignment'
-                      updateFunction={updatePlacement}
+                      updatePlacement={updatePlacement}
                       array={assetsList.alignment}
                       ulId="dropdown4"
                       category='placement'
@@ -244,7 +244,6 @@ function Search() {
                         <SearchForm
                             searchTerm={query}
                             onSearchInput={handleChange}
-                            // onSearchSubmit={handleSearchSubmit}
                         />
                     </div>
                 </div>

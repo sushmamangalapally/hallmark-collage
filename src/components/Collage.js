@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import domtoimage from "dom-to-image";
 
 const Collage = ({
@@ -13,18 +13,14 @@ const Collage = ({
     updateText,
     updateFont,
 }) => {
-    async function handleSubmit(event) {
-        event.preventDefault();
-    }
-
     const allowDrop = (event) => {
-        console.log("allowdropppp");
+        console.log("allow drop!");
         console.log(event);
         event.preventDefault();
     };
 
     const drop = (event) => {
-        console.log("droppppppppp");
+        console.log("drop!");
         var horizontallGrid = [
             "drag1",
             "drag2",
@@ -70,11 +66,6 @@ const Collage = ({
             alert("You must match picture according height and width!");
             return false;
         }
-    };
-
-    const handleUpdatePhotosSearch = (event) => {
-        console.log(event);
-        updatePhotosSearch();
     };
 
     const saveCollage = () => {
