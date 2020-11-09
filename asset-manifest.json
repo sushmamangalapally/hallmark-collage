@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/hallmark-collage/static/css/main.dec1201b.chunk.css",
-    "main.js": "/hallmark-collage/static/js/main.5cc223aa.chunk.js",
-    "main.js.map": "/hallmark-collage/static/js/main.5cc223aa.chunk.js.map",
+    "main.css": "/hallmark-collage/static/css/main.01135a94.chunk.css",
+    "main.js": "/hallmark-collage/static/js/main.f2bb0930.chunk.js",
+    "main.js.map": "/hallmark-collage/static/js/main.f2bb0930.chunk.js.map",
     "runtime-main.js": "/hallmark-collage/static/js/runtime-main.57b3aa50.js",
     "runtime-main.js.map": "/hallmark-collage/static/js/runtime-main.57b3aa50.js.map",
-    "static/js/2.a57ee881.chunk.js": "/hallmark-collage/static/js/2.a57ee881.chunk.js",
-    "static/js/2.a57ee881.chunk.js.map": "/hallmark-collage/static/js/2.a57ee881.chunk.js.map",
+    "static/js/2.f3fa0a77.chunk.js": "/hallmark-collage/static/js/2.f3fa0a77.chunk.js",
+    "static/js/2.f3fa0a77.chunk.js.map": "/hallmark-collage/static/js/2.f3fa0a77.chunk.js.map",
     "index.html": "/hallmark-collage/index.html",
-    "precache-manifest.b72ae16641919eeb5092f6cb3591c0c5.js": "/hallmark-collage/precache-manifest.b72ae16641919eeb5092f6cb3591c0c5.js",
+    "precache-manifest.d8583fc6f4010aeaf9a598e6fd6e7417.js": "/hallmark-collage/precache-manifest.d8583fc6f4010aeaf9a598e6fd6e7417.js",
     "service-worker.js": "/hallmark-collage/service-worker.js",
-    "static/css/main.dec1201b.chunk.css.map": "/hallmark-collage/static/css/main.dec1201b.chunk.css.map",
-    "static/js/2.a57ee881.chunk.js.LICENSE.txt": "/hallmark-collage/static/js/2.a57ee881.chunk.js.LICENSE.txt",
+    "static/css/main.01135a94.chunk.css.map": "/hallmark-collage/static/css/main.01135a94.chunk.css.map",
+    "static/js/2.f3fa0a77.chunk.js.LICENSE.txt": "/hallmark-collage/static/js/2.f3fa0a77.chunk.js.LICENSE.txt",
     "static/media/spinner.gif": "/hallmark-collage/static/media/spinner.235b9b3e.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.57b3aa50.js",
-    "static/js/2.a57ee881.chunk.js",
-    "static/css/main.dec1201b.chunk.css",
-    "static/js/main.5cc223aa.chunk.js"
+    "static/js/2.f3fa0a77.chunk.js",
+    "static/css/main.01135a94.chunk.css",
+    "static/js/main.f2bb0930.chunk.js"
   ]
 }
