@@ -182,7 +182,7 @@ function Search() {
                     <Dropdown 
                       title='Greeting Text Alignment'
                       subTitle='Text Alignment'
-                      updatePlacement={updatePlacement}
+                      updateFunction={updatePlacement}
                       array={assetsList.alignment}
                       ulId="dropdown4"
                       category='placement'
@@ -259,6 +259,13 @@ function Search() {
                 placement={placement}
                 updateText={updateText}
                 updateFont={updateFont}
+                setPictures={setPictures}
+                setQuery={setQuery}
+                setText={setText}
+                setGBackgroundColor={setGBackgroundColor}
+                setFontColor={setFontColor}
+                setPlacement={setPlacement}
+                setFontFam={setFontFam}
             />
         </div>
     );

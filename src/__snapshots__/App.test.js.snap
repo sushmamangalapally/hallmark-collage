@@ -2,7 +2,7 @@
 
 exports[`SearchForm renders snapshot 1`] = `
 <input
-  class="form-input"
+  className="form-input"
   id="adding_photos_text"
   placeholder="Search Pictures"
   type="text"

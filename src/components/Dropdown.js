@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component, useEffect, useState, Fragment }  from "react";
 
-function Dropdown({title, subTitle, updatePlacement, array, category, ulId, fontFam, placement, fontColor, gBackgroundColor}) {
+function Dropdown({title, subTitle, updateFunction, array, category, ulId, fontFam, placement, fontColor, gBackgroundColor}) {
     const expandMenu = (event) => {
         const ENTER_KEY_CODE = 13;
         const DOWN_ARROW_KEY_CODE = 40;
@@ -10,6 +10,7 @@ function Dropdown({title, subTitle, updatePlacement, array, category, ulId, font
         console.log('expandMenu')
         console.log(event);
         console.log(this);
+        console.log(event.currentTarget);
         console.log(event.target.parentElement.querySelector('ul'));
         if (ENTER_KEY_CODE === event.keyCode) {
             event.target.parentElement.querySelector('ul').setAttribute('style', 'display: block');
@@ -75,7 +76,7 @@ function Dropdown({title, subTitle, updatePlacement, array, category, ulId, font
                         <li
                             role="option"
                             aria-selected="true"
-                            onClick={updatePlacement}
+                            onClick={updateFunction}
                             id={ele.id}
                             key={ele.id}
                             data-value={ele.value}

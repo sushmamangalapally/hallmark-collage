@@ -480,3 +480,18 @@ div.dropdown a {
 .image-container ul.menu li{
   cursor: pointer;
 }
+
+button.save {
+  float: right;
+  background: #a8a4b9;
+  color: white;
+}
+
+button.reset {
+  background: #301f84;
+  color: white;
+}
+
+/* button.save:hover, button.reset:hover {
+  opacity: 0.5;
+} */

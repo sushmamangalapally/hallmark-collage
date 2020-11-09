@@ -1,5 +1,7 @@
 import React from "react";
 import domtoimage from "dom-to-image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSave, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Collage = ({
     photo,
@@ -12,6 +14,13 @@ const Collage = ({
     placement,
     updateText,
     updateFont,
+    setPictures,
+    setQuery,
+    setText,
+    setGBackgroundColor,
+    setFontColor,
+    setPlacement,
+    setFontFam
 }) => {
     const allowDrop = (event) => {
         console.log("allow drop!");
@@ -80,6 +89,23 @@ const Collage = ({
                 link.click();
             });
     };
+
+    const resetCollage = () => {
+        setPictures([]);
+        setQuery('');
+        setText('');
+        setGBackgroundColor('lightgrey');
+        setFontColor('grey');
+        setPlacement('top');
+        setFontFam('');
+
+        const collageFigureImgs = document.querySelectorAll('.gallery figure');
+        [...collageFigureImgs].map(element => {
+            console.log(element);
+            element.style = '';
+            return element;
+        })
+    }
 
     return (
         <div className="container">
@@ -175,9 +201,26 @@ const Collage = ({
                     ""
                 )}
             </div>
-            <button className="btn btn-lg" onClick={saveCollage}>
-                Save Collage
-            </button>
+            <div className="columns col-oneline">
+                <div className="column col-6">
+                    <button className="btn btn-lg reset" onClick={resetCollage}>
+                        <FontAwesomeIcon
+                            icon={faRedoAlt}
+                            // tabIndex="0" 
+                        />
+                        &nbsp;Reset Collage
+                    </button>
+                </div>
+                <div className="column col-6">
+                    <button className="btn btn-lg save" onClick={saveCollage}>
+                        <FontAwesomeIcon
+                            icon={faSave}
+                            // tabIndex="0" 
+                        />
+                        &nbsp;Save Collage
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };

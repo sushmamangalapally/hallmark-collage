@@ -16,12 +16,12 @@ const Photos = ({pictures, noPictures, searchTerm, loadMore, updatePhotosSearch,
               {pictures.map((pic, index) => (
                 <Photo key={pic.id+index} photo={pic} pictures={pictures} updatePhotosSearch={updatePhotosSearch}/>
               ))}
-              <button class="btn btn-lg" onClick={loadMore}>Load More</button>
+              <button className="btn btn-lg" onClick={loadMore}>Load More</button>
             </>
         ) : (
           <h2>{isLoading && searchTerm.length ? <img src={spinner} style={{width: '50px', margin: 'auto', display: 'block'}} alt="Loading"/> : (noPictures && searchTerm.length ? 'No results found for '+ searchTerm : 'No pictures yet')}</h2>
         )}
-        {/* <div class="empty"></div> */}
+        {/* <div className="empty"></div> */}
       </div>
     );
   }
