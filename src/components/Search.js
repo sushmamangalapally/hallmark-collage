@@ -233,7 +233,8 @@ function Search() {
 
                     <div className="search-books-input-wrapper form-group">
                         <label className="active form-label" htmlFor="adding_photos_text">
-                            <p><b>Add Photos</b></p>
+                            <b>Add Photos</b>
+                            <br/>
                             Simply drag and drop the photos to the
                             collage.
                             <br/>

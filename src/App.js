@@ -14,9 +14,9 @@ function App() {
           <section className="navbar-center">
             Create Your Photo Collage
           </section>
-          {/* <section className="navbar-section">
-            Made by Sushma
-          </section> */}
+          <section className="navbar-section">
+              
+          </section>
         </header>
         <Search/>
       </div>

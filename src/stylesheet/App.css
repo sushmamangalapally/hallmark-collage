@@ -483,13 +483,14 @@ div.dropdown a {
 
 button.save {
   float: right;
-  background: #a8a4b9;
+  background: #7975d4;
   color: white;
 }
 
 button.reset {
-  background: #301f84;
-  color: white;
+  background: #fbedf0;
+  color: #d25a6e;
+  border: 1px solid #d25a6e;
 }
 
 /* button.save:hover, button.reset:hover {
