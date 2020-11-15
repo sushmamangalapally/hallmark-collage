@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/hallmark-collage/static/css/main.01135a94.chunk.css",
-    "main.js": "/hallmark-collage/static/js/main.f2bb0930.chunk.js",
-    "main.js.map": "/hallmark-collage/static/js/main.f2bb0930.chunk.js.map",
+    "main.css": "/hallmark-collage/static/css/main.8be5b4be.chunk.css",
+    "main.js": "/hallmark-collage/static/js/main.275f57bb.chunk.js",
+    "main.js.map": "/hallmark-collage/static/js/main.275f57bb.chunk.js.map",
     "runtime-main.js": "/hallmark-collage/static/js/runtime-main.57b3aa50.js",
     "runtime-main.js.map": "/hallmark-collage/static/js/runtime-main.57b3aa50.js.map",
     "static/js/2.f3fa0a77.chunk.js": "/hallmark-collage/static/js/2.f3fa0a77.chunk.js",
     "static/js/2.f3fa0a77.chunk.js.map": "/hallmark-collage/static/js/2.f3fa0a77.chunk.js.map",
     "index.html": "/hallmark-collage/index.html",
-    "precache-manifest.d8583fc6f4010aeaf9a598e6fd6e7417.js": "/hallmark-collage/precache-manifest.d8583fc6f4010aeaf9a598e6fd6e7417.js",
+    "precache-manifest.59ba8affcdfb7f601f069bb1e4b1cbfe.js": "/hallmark-collage/precache-manifest.59ba8affcdfb7f601f069bb1e4b1cbfe.js",
     "service-worker.js": "/hallmark-collage/service-worker.js",
-    "static/css/main.01135a94.chunk.css.map": "/hallmark-collage/static/css/main.01135a94.chunk.css.map",
+    "static/css/main.8be5b4be.chunk.css.map": "/hallmark-collage/static/css/main.8be5b4be.chunk.css.map",
     "static/js/2.f3fa0a77.chunk.js.LICENSE.txt": "/hallmark-collage/static/js/2.f3fa0a77.chunk.js.LICENSE.txt",
     "static/media/spinner.gif": "/hallmark-collage/static/media/spinner.235b9b3e.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.57b3aa50.js",
     "static/js/2.f3fa0a77.chunk.js",
-    "static/css/main.01135a94.chunk.css",
-    "static/js/main.f2bb0930.chunk.js"
+    "static/css/main.8be5b4be.chunk.css",
+    "static/js/main.275f57bb.chunk.js"
   ]
 }
