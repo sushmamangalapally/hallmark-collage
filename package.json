@@ -23,7 +23,7 @@
     "react-dom": "^16.8.6",
     "react-google-font-loader": "^1.0.5",
     "react-scripts": "^3.4.1",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "spectre.css": "^0.5.9",
     "styled-components": "^4.3.2",
     "typescript": "^4.0.3"
