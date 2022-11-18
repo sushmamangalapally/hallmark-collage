@@ -22,7 +22,7 @@
     "react-beautiful-dnd": "^11.0.4",
     "react-dom": "^16.8.6",
     "react-google-font-loader": "^1.0.5",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.1",
     "socket.io": "^2.2.0",
     "spectre.css": "^0.5.9",
     "styled-components": "^4.3.2",
